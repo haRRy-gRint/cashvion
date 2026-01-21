@@ -22,6 +22,10 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/budget', require('./routes/budget'));
 app.use('/api/transactions', transactionRoutes);
 
+app.get('/', (req, res) => {
+    res.json({ status: 'active', message: 'Expense Lens Backend is running' });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
