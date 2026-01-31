@@ -1,13 +1,18 @@
 import pool from '../../../lib/db';
 import bcrypt from 'bcryptjs';
 
+// Explicitly NOT importing withAuth
+
 export default async function handler(req, res) {
+    console.log('[Register Route] Request received:', req.method);
+
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
     try {
         const { username, email, password } = req.body;
+        console.log('[Register Route] Processing:', { username, email });
 
         if (!username || !email || !password) {
             return res.status(400).json({ error: 'Missing required fields' });
@@ -26,10 +31,11 @@ export default async function handler(req, res) {
             [username, email, hashedPassword]
         );
 
+        console.log('[Register Route] Success:', newUser.rows[0]);
         res.status(201).json(newUser.rows[0]);
 
     } catch (err) {
-        console.error(err.message);
+        console.error('[Register Route] Error:', err.message);
         res.status(500).json({ error: 'Server Error' });
     }
 }

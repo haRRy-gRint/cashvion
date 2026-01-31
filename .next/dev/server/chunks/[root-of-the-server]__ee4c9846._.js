@@ -64,8 +64,10 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$jsonwebtoken__$5b$external
 ;
 function withAuth(handler) {
     return async (req, res)=>{
+        console.log(`[Auth Check] Verifying token for: ${req.method} ${req.url}`);
         const token = req.headers.authorization;
         if (!token) {
+            console.log('[Auth Check] Failed: No token provided');
             return res.status(401).json({
                 error: 'Access Denied: No Token Provided'
             });
@@ -77,6 +79,7 @@ function withAuth(handler) {
             req.user = verified;
             return handler(req, res);
         } catch (err) {
+            console.log('[Auth Check] Failed: Invalid token');
             return res.status(400).json({
                 error: 'Invalid Token'
             });

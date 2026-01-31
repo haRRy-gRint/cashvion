@@ -1,5 +1,8 @@
 {
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/api/auth/login": "pages/api/auth/login.js",
+  "/api/auth/register": "pages/api/auth/register.js",
+  "/api/budget/status": "pages/api/budget/status.js"
 }

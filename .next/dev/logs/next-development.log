@@ -1,1 +1,11 @@
-[00:00:01.097] Server  LOG     ✓ Ready in 711ms
+[00:00:00.976] Server  LOG     ✓ Ready in 628ms
+[00:00:15.096] Server  LOG     [DB] Initializing new pool (dev)
+[00:00:15.115] Server  LOG     [Register Route] Request received: "POST"
+[00:00:15.116] Server  LOG     [Register Route] Processing: {}
+[00:00:22.330] Server  LOG     [Register Route] Request received: "POST"
+[00:00:22.331] Server  LOG     [Register Route] Processing: {}
+[00:00:43.288] Server  LOG     [Register Route] Request received: "POST"
+[00:00:43.289] Server  LOG     [Register Route] Processing: {}
+[00:00:43.518] Server  LOG     [Register Route] Success: {}
+[00:00:48.354] Server  LOG     [Auth Check] Verifying token for: GET /api/budget/status?month=2026-01
+[00:00:48.373] Server  LOG     [Auth Check] Verifying token for: GET /api/budget/status?month=2026-01
