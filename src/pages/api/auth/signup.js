@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 // Explicitly NOT importing withAuth
 
 export default async function handler(req, res) {
-    console.log('[Register Route] Request received:', req.method);
+    console.log('[Signup Route] Request received:', req.method);
 
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     try {
         const { username, email, password } = req.body;
-        console.log('[Register Route] Processing:', { username, email });
+        console.log('[Signup Route] Processing:', { username, email });
 
         if (!username || !email || !password) {
             return res.status(400).json({ error: 'Missing required fields' });
@@ -31,11 +31,11 @@ export default async function handler(req, res) {
             [username, email, hashedPassword]
         );
 
-        console.log('[Register Route] Success:', newUser.rows[0]);
+        console.log('[Signup Route] Success:', newUser.rows[0]);
         res.status(201).json(newUser.rows[0]);
 
     } catch (err) {
-        console.error('[Register Route] Error:', err.message);
+        console.error('[Signup Route] Error:', err.message);
         res.status(500).json({ error: 'Server Error' });
     }
 }

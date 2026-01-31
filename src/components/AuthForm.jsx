@@ -13,7 +13,7 @@ function AuthForm({ onLogin }) {
         setError('');
         setLoading(true);
 
-        const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+        const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';
 
         try {
             const response = await fetch(`${API_URL}${endpoint}`, {
