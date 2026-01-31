@@ -3,7 +3,7 @@ import AuthForm from './components/AuthForm';
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
 import History from './components/History';
-import './index.css';
+// import './index.css'; // Removed for Next.js compatibility (loaded in _app.jsx)
 
 function App() {
   const [user, setUser] = useState(null);
